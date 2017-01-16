@@ -1,5 +1,3 @@
-//This libarie is needed if you want to use MIDI Over Usb
-//#include <MIDI.h>
 //This file contains all the values a MIDI message can contain
 #include "VAR_MIDI.h"
 //This libarie is needed for the wifi and mqtt handeling

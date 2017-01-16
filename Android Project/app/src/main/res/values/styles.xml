@@ -1,4 +1,5 @@
 <resources>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
@@ -7,11 +8,23 @@
         <item name="colorAccent">@color/colorPrimary</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:windowBackground">@color/windowBgDark</item>
-        <item name="android:itemBackground">@color/windowBgDark</item>
+        <item name="android:itemBackground">@drawable/ripple_background</item>
         <item name="android:textColor">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
     </style>
 
-    <style name="ColoredButton" parent="Widget.AppCompat.Button.Colored">
-        <item name="android:textColor">@color/white</item>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--Splash Screen-->
+    <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+    <!--End Splash Screen-->
 </resources>

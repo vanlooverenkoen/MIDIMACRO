@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <color name="colorPrimary">#c51e0e</color>
     <color name="colorPrimaryDark">#a4180b</color>
-    <color name="colorAccent">#e1e1e1</color>
     <color name="windowBgDark">#333333</color>
+    <color name="settingsLine">#7f212121</color>
+    <color name="ripple">#555555</color>
+    <color name="cardBackground">#424242</color>
     <color name="white">#ffffff</color>
+    <color name="unselected_indicator">#64ffffff</color>
+
+    <color name="material_blue">#ff37474f</color>
 </resources>

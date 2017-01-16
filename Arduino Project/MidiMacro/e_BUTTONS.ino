@@ -1,9 +1,13 @@
 /*Button*/
-void debounceBtn(int btnPin, int channel, int control) {
-  int lastButtonState = LOW;
-  int buttonState = LOW;
-  boolean isPushed = false;
-  switch (btnPin) {
+void debounceBtn(int index) {
+  int btnPin = buttons[index];
+  int lastButtonState = buttonsLastState[index];
+  int buttonState = buttonsState[index];
+  boolean isPushed = buttonsIsPushed[index];
+  int channel = buttonsChannel[index];
+  int control = buttonsControl[index];
+  /*
+    switch (btnPin) {
     case encoderSW:
       lastButtonState = encoderBtnLastState;
       buttonState = encoderBtnState;
@@ -59,117 +63,52 @@ void debounceBtn(int btnPin, int channel, int control) {
       buttonState = btnBState;
       isPushed = btnBIsPushed;
       break;
-  }
-
+    }
+  */
   int reading = digitalRead(btnPin);
+  
   if (reading != lastButtonState) {
     lastDebounceTime = millis();
   }
-
+  
   if ((millis() - lastDebounceTime) > debounceDelay) {
     if (reading != buttonState) {
       buttonState = reading;
       if (buttonState == HIGH) {
-        if (isPushed) {
+        if (btnPin == encoderSW)
           print(channel, control, VALUE_0);
-          //print("Pushed the button\n");
-          //MIDI.sendControlChange(CONTROL_0, VALUE_0, CHANNEL_1);
-          isPushed = false;
-        } else {
+        else
           print(channel, control, VALUE_127);
-          //print("Released the button\n");
-          //MIDI.sendControlChange(CONTROL_0, VALUE_127, CHANNEL_1);
-          isPushed = true;
-        }
+        isPushed = true;
+      } else {
+        if (btnPin == encoderSW)
+          print(channel, control, VALUE_127);
+        else
+          print(channel, control, VALUE_0);
+        isPushed = false;
       }
     }
   }
 
-  switch (btnPin) {
-    case encoderSW:
-      encoderBtnLastState = reading;
-      encoderBtnState = buttonState;
-      encoderBtnIsPushed = isPushed;
-      break;
-    case btn1:
-      btn1LastState = reading;
-      btn1State = buttonState;
-      btn1IsPushed = isPushed;
-      break;
-    case btn2:
-      btn2LastState = reading;
-      btn2State = buttonState;
-      btn2IsPushed = isPushed;
-      break;
-    case btn3:
-      btn3LastState = reading;
-      btn3State = buttonState;
-      btn3IsPushed = isPushed;
-      break;
-    case btn4:
-      btn4LastState = reading;
-      btn4State = buttonState;
-      btn4IsPushed = isPushed;
-      break;
-    case btn5:
-      btn5LastState = reading;
-      btn5State = buttonState;
-      btn5IsPushed = isPushed;
-      break;
-    case btn6:
-      btn6LastState = reading;
-      btn6State = buttonState;
-      btn6IsPushed = isPushed;
-      break;
-    case btn7:
-      btn7LastState = reading;
-      btn7State = buttonState;
-      btn7IsPushed = isPushed;
-      break;
-    case btn8:
-      btn8LastState = reading;
-      btn8State = buttonState;
-      btn8IsPushed = isPushed;
-      break;
-    case btnA:
-      btnALastState = reading;
-      btnAState = buttonState;
-      btnAIsPushed = isPushed;
-      break;
-    case btnB:
-      btnBLastState = reading;
-      btnBState = buttonState;
-      btnBIsPushed = isPushed;
-      break;
-  }
+  buttonsLastState[index] =  reading;
+  buttonsState[index] = buttonState;
+  buttonsIsPushed[index] = isPushed;
 }
 
-void debounceResetBtn() {
-  int reading = digitalRead(resetBtn);
-
-  if (reading != btnResetLastState) {
-    // reset the debouncing timer
+void debounceLedBtn() {
+  int reading = digitalRead(ledBtn);
+  if (reading != btnLedLastState) {
     lastDebounceTime = millis();
   }
 
   if ((millis() - lastDebounceTime) > debounceDelay) {
-    // whatever the reading is at, it's been there for longer
-    // than the debounce delay, so take it as the actual current state:
-
-    // if the button state has changed:
-    if (reading != btnResetState) {
-      btnResetState = reading;
-
-      // only toggle the LED if the new button state is HIGH
-      if (btnResetState == LOW) {
-        print("Pressed");
-        digitalWrite(resetPin, LOW);
-        delay(200);
-        digitalWrite(resetPin, HIGH);
-        delay(200);
+    if (reading != btnLedState) {
+      btnLedState = reading;
+      if (btnLedState == HIGH) {
+        refreshLeds(!showLeds);
+        publishMqttMessageToArduino(showLeds);
       }
-      println();
     }
   }
-  btnResetLastState = reading;
+  btnLedLastState = reading;
 }

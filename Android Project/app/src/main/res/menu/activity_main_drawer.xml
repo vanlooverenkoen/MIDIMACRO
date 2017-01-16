@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_macro"
+            android:icon="@drawable/macro_icon"
+            android:title="Macro"
+            android:visible="false" />
+        <item
+            android:id="@+id/nav_mixer"
+            android:icon="@drawable/mixer_icon"
+            android:title="Mixer" />
+    </group>
+    <item android:title="Extra">
+        <menu>
+            <item
+                android:id="@+id/nav_settings"
+                android:icon="@drawable/settings_icon"
+                android:title="Settings" />
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/lightbulb_icon"
+                android:title="About Us / Help" />
+        </menu>
+    </item>
+</menu>

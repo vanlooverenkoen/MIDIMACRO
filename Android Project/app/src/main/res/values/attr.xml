@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ControlButton">
+        <attr name="toggle" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="ControlSliderV">
+        <attr name="centered" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="Control">
+        <attr name="midichannel" format="integer" />
+        <attr name="midicontrol" format="integer" />
+    </declare-styleable>
+</resources>

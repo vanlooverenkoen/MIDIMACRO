@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="midi_modes">
+        <!--
+        <item>Midi over MIDIMACRO</item>
+        -->
+        <item>Midi over USB</item>
+        <item>Midi over TouchOSC Bridge</item>
+        <item>MQTT</item>
+    </string-array>
+    <string-array name="midi_modes_no_over_usb">
+        <!--
+        <item>Midi over MIDIMACRO</item>
+        -->
+        <item>Midi over TouchOSC Bridge</item>
+        <item>MQTT</item>
+    </string-array>
+    <string-array name="mixer_layouts">
+        <item>2 Sliders</item>
+        <item>4 Sliders</item>
+        <item>5 Sliders</item>
+        <item>8 Sliders</item>
+        <item>12 Sliders</item>
+        <item>Mixer 4 Sliders</item>
+        <item>Knobs</item>
+    </string-array>
+</resources>

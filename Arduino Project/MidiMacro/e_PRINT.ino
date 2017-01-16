@@ -16,9 +16,9 @@ void print(int channel, int control, int value) {
 }
 
 void print(String value) {
-  Serial.print(value);
+  //Serial.print(value);
 }
 
 void println() {
-  Serial.println();
+  //Serial.println();
 }
