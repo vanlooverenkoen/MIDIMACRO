@@ -35,3 +35,5 @@ After my school project, it was so easy to manipulate the Windows Volume Mixer w
 At this point the software is only tested on Windows 10.
 For Android it should work for 93% of the devices. If your phone is Android 6.0 or higher. you get MIDI Over USB 
   
+### What will it offer in the future?
+Well, my idea is to expand the windows program to also controll keyboard and mouse inputs with the MIDIMACRO windows software combined with a MIDI-device or the MIDIMACRO Android app. I want to create the same functionality as g-keys on some keyboards from logitech or corsair. (I want to make the MIDI-device a fully programmable "keyboard")
