@@ -32,7 +32,7 @@ After my school project, it was so easy to manipulate the Windows Volume Mixer w
   - Communication over MIDIMACRO Server (REST)
   
 ### Where will it work?
-At this point the software is only tested on Windows 10.
+At this point the software is only tested on Windows 10 and Windows 7 Pro.
 For Android it should work for 93% of the devices. If your phone is Android 6.0 or higher. you get MIDI Over USB 
   
 ### What will it offer in the future?
